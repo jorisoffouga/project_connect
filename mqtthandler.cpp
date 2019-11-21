@@ -1,6 +1,6 @@
 #include "mqtthandler.h"
 
-MqttHandler::MqttHandler(QString address, quint16 port, QList<QString> topicList):
+MqttHandler::MqttHandler(QString &address, quint16 port, QList<QString> topicList):
     m_address(address), m_port(port), m_topic_list(topicList)
 {
     m_client = new QMqttClient();
@@ -10,6 +10,11 @@ MqttHandler::MqttHandler(QString address, quint16 port, QList<QString> topicList
     m_client->connectToHost();
 }
 
+MqttHandler::~MqttHandler()
+{
+    m_client->disconnectFromHost();
+    delete m_client;
+}
 
 void MqttHandler::clientStateChanged(QMqttClient::ClientState state)
 {
@@ -51,4 +56,12 @@ void MqttHandler::onMessage(QMqttMessage message)
 {
     qDebug() << "mqtt message receive from topic : " <<  message.topic().name() << " payload : " <<
                 message.payload();
+}
+
+void MqttHandler::publishData(QString &topic, QJsonObject &jsonData)
+{
+    QMqttTopicFilter topicFilter;
+    topicFilter.setFilter(topic);
+    QJsonDocument data( jsonData );
+    m_client->publish(topic, data.toJson());
 }
