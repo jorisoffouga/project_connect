@@ -6,14 +6,27 @@ MqttHerit::MqttHerit(QString address, quint16 port, QList<QString> topicList): M
 
 void MqttHerit::onMessage(QMqttMessage message) {
     quint32 rc;
-    QString topic = "/data";
     QJsonObject jobject;
 
    qDebug() << "mqtt message receive fils from topic : " <<  message.topic().name() << " payload : " << message.payload();
 
    if(message.topic().name() == "/test"){
-       jobject["Temperature"] = QString::number(25);
-       jobject["Type"] = "Data";
+       QString topic = "/data";
+       jobject["data"] = QString::number(25);
+       jobject["status"] = "Connected";
+       jobject["id"] = "42";
+       this->publishData(topic, jobject);
+   }else if(message.topic().name() == "/sensor/tvoc"){
+       QString topic = "/sensor/tvoc";
+       jobject["data"] = QString::number(25);
+       jobject["status"] = "Connected";
+       jobject["id"] = "42";
+       this->publishData(topic, jobject);
+   }else if(message.topic().name() == "/sensor/co2"){
+       QString topic = "/sensor/co2";
+       jobject["data"] = QString::number(25);
+       jobject["status"] = "Connected";
+       jobject["id"] = "42";
        this->publishData(topic, jobject);
    }else if(message.topic().name() == "/stuff"){
        QJsonDocument dataJSON = QJsonDocument::fromJson(message.payload());
