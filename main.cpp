@@ -1,38 +1,7 @@
 #include <QCoreApplication>
 #include "mqtthandler.h"
+#include "mqttherit.h"
 
-class MqttFils : MqttHandler
-{
-public:
-    MqttFils(QString address, quint16 port, QList<QString> topicList): MqttHandler(address, port, topicList){
-    }
-
-public slots:
-    void onMessage(QMqttMessage message) override{
-        quint32 rc;
-        QString topic = "/data";
-        QJsonObject jobject;
-
-        qDebug() << "mqtt message receive fils from topic : " <<  message.topic().name() << " payload : " <<
-                    message.payload();
-
-        if(message.topic().name() == "/test"){
-            jobject["Temperature"] = QString::number(25);
-
-            jobject["Type"] = "Data";
-
-            this->publishData(topic, jobject);
-        }else if(message.topic().name() == "/stuff"){
-            QJsonDocument dataJSON = QJsonDocument::fromJson(message.payload());
-            QJsonObject data = dataJSON.object();
-            int value1 = data["value1"].toInt();
-            int value2 = data["value2"].toInt();
-
-            qDebug() << value1;
-            qDebug() << value2;
-        }
-    }
-};
 
 
 int main(int argc, char *argv[])
@@ -46,7 +15,7 @@ int main(int argc, char *argv[])
     topicList.append("/stuff");
     topicList.append("/test");
 
-    MqttFils *mqtt = new MqttFils(address, port, topicList);
+    MqttHerit *mqtt = new MqttHerit(address, port, topicList);
 
     return a.exec();
 }
