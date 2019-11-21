@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QtMqtt/QMqttClient>
 #include <QString>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 #include <QList>
 #include <QDebug>
 
@@ -11,8 +14,10 @@ class MqttHandler : public QObject
 {
     Q_OBJECT
 public:
-    explicit MqttHandler(QString address, quint16 port, QList<QString> topicList);
-
+    MqttHandler(QString &address, quint16 port, QList<QString> topicList);
+    ~MqttHandler();
+    QMqttClient *m_client;
+    void publishData(QString &topic, QJsonObject &jsonData);
 signals:
 
 public slots:
@@ -20,7 +25,6 @@ public slots:
 
 private:
     void subscribe(QString topic);
-    QMqttClient *m_client;
     QString m_address;
     quint16 m_port;
     QList <QString> m_topic_list;
