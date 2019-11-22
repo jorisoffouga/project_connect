@@ -1,6 +1,25 @@
 #include <QCoreApplication>
 #include "mqtthandler.h"
+#include "read_file.h"
+#include "comm_mqtt.h"
+#include "interobj.h"
 
+
+int main(int argc, char *argv[])
+{
+    qDebug() << "Avant le lancement du timer ";
+
+    QCoreApplication a(argc, argv);
+    qDebug() << "Avant le lancement du timer ";
+
+    InterObj *inter = new InterObj();
+
+    return a.exec();
+}
+
+
+
+/*
 class MqttFils : MqttHandler
 {
 public:
@@ -49,3 +68,4 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+*/
