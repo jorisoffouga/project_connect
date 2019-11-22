@@ -2,15 +2,19 @@
 #include "comm_mqtt.h"
 #include "read_file.h"
 
+
+/**
+ * @brief Construct a new Inter Obj:: Inter Obj object
+ * 
+ * @param parent 
+ */
 InterObj::InterObj(QObject *parent) : QObject(parent)
 {
-    QList<QString>topicList {"/feu"};
+    QList<QString>topicList {TOPICSUBSCRIB};
     m_read_file = new MyTimer();
     m_comm = new Comm_Mqtt("localhost", 1883, topicList);
 
-    QObject::connect(m_read_file,SIGNAL(DataToSend(QString, QJsonObject)),m_MqttHandler,SLOT(publishData(QString *, QJsonObject *)));
-
-    m_read_file->timer->start(100);
+    connect(m_read_file, &MyTimer::DataToSend, m_comm, &Comm_Mqtt::SendData);
 }
 
 InterObj::~InterObj()

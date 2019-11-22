@@ -26,7 +26,7 @@ public slots:
 private:
 
 signals:
-    void DataToSend(QString *, QJsonObject *);
+    void DataToSend(QString, QJsonObject);
 };
 
 #endif // READ_FILE_H

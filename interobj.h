@@ -3,6 +3,9 @@
 #include "comm_mqtt.h"
 #include "read_file.h"
 
+#define TOPICSUBSCRIB "/command"
+
+
 class InterObj : public QObject
 {
     Q_OBJECT
