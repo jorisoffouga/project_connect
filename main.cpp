@@ -14,6 +14,8 @@ int main(int argc, char *argv[])
     QList<QString> topicList;
     topicList.append("/stuff");
     topicList.append("/test");
+    topicList.append("/sensor/tvoc");
+    topicList.append("/sensor/co2");
 
     MqttHerit *mqtt = new MqttHerit(address, port, topicList);
 
