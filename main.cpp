@@ -1,8 +1,7 @@
 #include <QCoreApplication>
 #include "mqtthandler.h"
-#include "gateway.h"
-
-
+#include "mqttcom.h"
+#include "airquality.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,10 +11,10 @@ int main(int argc, char *argv[])
     QString address = "192.168.0.51";
     quint16 port = 1883;
     QList<QString> topicList;
-    topicList.append("/sensor/tvoc");
-    topicList.append("/sensor/co2");
+    topicList.append("/command/tvoc");
+    topicList.append("/command/co2");
 
-    Gateway *mqtt = new Gateway(address, port, topicList);
+    MqttCom *mqtt = new MqttCom(address, port, topicList);
 
     return a.exec();
 }

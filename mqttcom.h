@@ -19,5 +19,9 @@ public:
 
 public slots:
     void onMessage(QMqttMessage message);
+    void onMeasureTvoc(quint16 tvoc_val);
+    void onMeasureCo2(quint16 co2_val);
+
+
 };
 #endif // MQTTHERIT_H
