@@ -28,7 +28,7 @@ MqttHandler::~MqttHandler()
 }
 
 /**
- * @brief 
+ * @brief Controle the differents states of conexion MQTT
  * 
  * @param state 
  */
@@ -52,7 +52,7 @@ void MqttHandler::clientStateChanged(QMqttClient::ClientState state)
 }
 
 /**
- * @brief 
+ * @brief Methode de subscribe to a topic
  * 
  * @param topic 
  */
@@ -73,7 +73,7 @@ void MqttHandler::subscribe(QString topic)
 }
 
 /**
- * @brief 
+ * @brief Detecte when a data is coming from a server and recieve data
  * 
  * @param message 
  */
@@ -84,7 +84,7 @@ void MqttHandler::onMessage(QMqttMessage message)
 }
 
 /**
- * @brief 
+ * @brief Methode to publish data
  * 
  * @param topic 
  * @param jsonData 
