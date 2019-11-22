@@ -1,3 +1,9 @@
+/*! \file structcmd.h
+    \brief A Documented file.
+
+    Details.
+*/
+
 #ifndef COMM_MQTT_H
 #define COMM_MQTT_H
 #include <QList>

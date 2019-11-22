@@ -1,3 +1,11 @@
+/*!
+* \file main.cpp
+* \brief Code flame sensor & led 7 segments
+* \author Thomas Abgrall
+* \date 22.11.2019
+* \version 1.0
+*/
+
 #include <QCoreApplication>
 #include "mqtthandler.h"
 #include "read_file.h"
