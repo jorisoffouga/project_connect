@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-//    QString address = "192.168.0.51";
-    QString address = "localhost";
+    //    QString address = "localhost";
+    QString address = "192.168.0.51";
     quint16 port = 1883;
     QList<QString> topicList;
     topicList.append("/sensor/tvoc");

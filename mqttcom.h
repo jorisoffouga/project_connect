@@ -11,11 +11,11 @@
 #include <QDebug>
 #include "mqtthandler.h"
 
-class Gateway : MqttHandler
+class MqttCom : MqttHandler
 {
     Q_OBJECT
 public:
-    Gateway(QString address, quint16 port, QList<QString> topicList);
+    MqttCom(QString address, quint16 port, QList<QString> topicList);
 
 public slots:
     void onMessage(QMqttMessage message);

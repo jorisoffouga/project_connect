@@ -1,10 +1,10 @@
-#include "gateway.h"
+#include "mqttcom.h"
 
 
-Gateway::Gateway(QString address, quint16 port, QList<QString> topicList): MqttHandler(address, port, topicList){}
+MqttCom::MqttCom(QString address, quint16 port, QList<QString> topicList): MqttHandler(address, port, topicList){}
 
 
-void Gateway::onMessage(QMqttMessage message) {
+void MqttCom::onMessage(QMqttMessage message) {
     QJsonObject jobject;
     QString topic = "data";
 
