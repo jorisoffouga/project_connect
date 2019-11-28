@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QFile>
 #include <QDebug>
-#include <QTextStream>
 #include <QTimer>
 #include <QJsonObject>
 

@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
+    // Paramétrage de la connection MQTT
     //    QString address = "localhost";
     QString address = "192.168.0.1";
     quint16 port = 1883;
@@ -18,9 +19,10 @@ int main(int argc, char *argv[])
 
     AirQuality *sensor = new AirQuality();
 
+    // Connection entre le signal et le slot pour envoyer les données depuis le capteurs vers le publish MQTT
     QObject::connect(sensor, &AirQuality::onDataSensor, mqtt, &MqttCom::onMeasureSensor);
 
-    sensor->readSensor();
+//    sensor->readSensor();
 
     return a.exec();
 }

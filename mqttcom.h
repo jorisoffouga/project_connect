@@ -3,12 +3,12 @@
 
 #include <QObject>
 #include <QtMqtt/QMqttClient>
-#include <QString>
-#include <QJsonArray>
-#include <QJsonDocument>
-#include <QJsonObject>
-#include <QList>
-#include <QDebug>
+//#include <QString>
+//#include <QJsonArray>
+//#include <QJsonDocument>
+//#include <QJsonObject>
+//#include <QList>
+//#include <QDebug>
 #include "mqtthandler.h"
 
 class MqttCom : public MqttHandler
