@@ -23,3 +23,11 @@ void MqttCom::onMessage(QMqttMessage message) {
 
     this->publishData(topic, jobject);
 }
+
+void MqttCom::onMeasureTvoc(QString &topic, QJsonObject &jsonData)
+{
+    QMqttTopicFilter topicFilter;
+    topicFilter.setFilter(topic);
+    QJsonDocument data( jsonData );
+    m_client->publish(topic, data.toJson());
+}
