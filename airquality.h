@@ -8,8 +8,9 @@
 #include <QTimer>
 
 
-class AirQuality
+class AirQuality : public QObject
 {
+    Q_OBJECT
 public:
     AirQuality();
     quint16 readTvoc();

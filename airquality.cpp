@@ -12,7 +12,7 @@ AirQuality::AirQuality()
 
 quint16 AirQuality::readTvoc()
 {
-    QFile file("/sys/bus/iio/devices/iio\:device0/in_concentration_co2_raw");
+    QFile file("/sys/bus/iio/devices/iio\:device1/in_concentration_co2_raw");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)){
         qDebug() << "Erreur d'ouverture";
         return 1;
