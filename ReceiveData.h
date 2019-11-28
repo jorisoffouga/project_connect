@@ -1,24 +1,24 @@
-#ifndef READ_FILE_H
-#define READ_FILE_H
+#ifndef ReceiveData_H
+#define ReceiveData_H
 #include <QFile>
 #include <QTextStream>
 #include <QString>
 #include <QEvent>
 #include <QTimer>
 #include <QObject>
-#include "comm_mqtt.h"
+#include "CommMqtt.h"
 
 
-class MyTimer : public QObject
+class ReceiveData : public QObject
 {
     Q_OBJECT
 public:
-    MyTimer(QWidget *parent=0);
+    ReceiveData(QWidget *parent=0);
     QFile file ;
     QTextStream flux;
     QTimer* timer;
-    QString data_read;
-    QString old_data;
+    int m_data_read;
+    int m_old_data;
 
 public slots:
     void timerEvent();
@@ -29,4 +29,4 @@ signals:
     void DataToSend(QString, QJsonObject);
 };
 
-#endif // READ_FILE_H
+#endif // ReceiveData_H

@@ -4,8 +4,8 @@
     Details.
 */
 
-#ifndef COMM_MQTT_H
-#define COMM_MQTT_H
+#ifndef COMMMQTT_H
+#define COMMMQTT_H
 #include <QList>
 #include <QObject>
 #include "mqtthandler.h"
@@ -13,10 +13,10 @@
 #define TOPICFLAME "/sensor/flame"
 #define TOPICGRAPH "/sensor/graph"
 
-class Comm_Mqtt: public MqttHandler
+class CommMqtt: public MqttHandler
 {
 public:
-    Comm_Mqtt(QString address, quint16 port, QList<QString> topicList);
+    CommMqtt(QString address, quint16 port, QList<QString> topicList);
 
 public slots:
     void onMessage(QMqttMessage message) override;
@@ -26,4 +26,4 @@ private:
     QString old_value;
 };
 
-#endif // COMM_MQTT_H
+#endif // COMMMQTT_H

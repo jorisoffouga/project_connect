@@ -8,9 +8,9 @@
 
 #include <QCoreApplication>
 #include "mqtthandler.h"
-#include "read_file.h"
-#include "comm_mqtt.h"
-#include "interobj.h"
+#include "ReceiveData.h"
+#include "CommMqtt.h"
+#include "Sensor.h"
 
 /**
  * @brief 
@@ -22,7 +22,7 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    InterObj *inter = new InterObj();
+    Sensor *inter = new Sensor();
 
     return a.exec();
 }

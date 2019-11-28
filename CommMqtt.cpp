@@ -1,18 +1,18 @@
-#include "comm_mqtt.h"
+#include "CommMqtt.h"
 #include "mqtthandler.h"
 #include <QString>
 
 
 /**
- * @brief Construct a new Comm_Mqtt::Comm_Mqtt object
+ * @brief Construct a new CommMqtt::CommMqtt object
  * 
  * @param address 
  * @param port 
  * @param topicList 
  */
-Comm_Mqtt::Comm_Mqtt(QString address, quint16 port, QList<QString> topicList):MqttHandler(address, port, topicList)
+CommMqtt::CommMqtt(QString address, quint16 port, QList<QString> topicList):MqttHandler(address, port, topicList)
 {
-    address = "localhost";
+    address = "192.168.0.1";
     port = 1883;
     topicList.append(TOPICFLAME);
     topicList.append(TOPICGRAPH);
@@ -24,7 +24,7 @@ Comm_Mqtt::Comm_Mqtt(QString address, quint16 port, QList<QString> topicList):Mq
  * @param topic 
  * @param msg 
  */
-void Comm_Mqtt::SendData(QString topic, QJsonObject msg)
+void CommMqtt::SendData(QString topic, QJsonObject msg)
 {
     MqttHandler::publishData(topic,msg);
 }
@@ -34,7 +34,7 @@ void Comm_Mqtt::SendData(QString topic, QJsonObject msg)
  * 
  * @param message 
  */
-void Comm_Mqtt::onMessage(QMqttMessage message)
+void CommMqtt::onMessage(QMqttMessage message)
 {
     QString msgRecu = message.topic().name();
 
