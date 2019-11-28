@@ -14,7 +14,7 @@ class AirQuality : public QObject
     Q_OBJECT
 public:
     AirQuality();
-    void readTvoc();
+    void readSensor();
 private:
     quint16 m_co2_val;
     QTimer *m_timer;
@@ -26,7 +26,7 @@ public slots :
     void timerSlot();
 
 signals:
-    void onDataTvoc(QString topic, QJsonObject payload);
+    void onDataSensor(QString topic, QJsonObject payload);
 };
 
 #endif // AIRQUALITY_H

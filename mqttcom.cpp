@@ -24,8 +24,9 @@ void MqttCom::onMessage(QMqttMessage message) {
     this->publishData(topic, jobject);
 }
 
-void MqttCom::onMeasureTvoc(QString topic, QJsonObject jsonData)
+void MqttCom::onMeasureSensor(QString topic, QJsonObject jsonData)
 {
+    qDebug() << jsonData;
     QMqttTopicFilter topicFilter;
     topicFilter.setFilter(topic);
     QJsonDocument data( jsonData );

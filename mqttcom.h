@@ -19,8 +19,7 @@ public:
 
 public slots:
     void onMessage(QMqttMessage message);
-    void onMeasureTvoc(QString topic, QJsonObject jsonData);
-//    void onMeasureCo2(quint16 co2_val);
+    void onMeasureSensor(QString topic, QJsonObject jsonData);
 
 
 };
