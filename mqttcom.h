@@ -11,7 +11,7 @@
 #include <QDebug>
 #include "mqtthandler.h"
 
-class MqttCom : MqttHandler
+class MqttCom : public MqttHandler
 {
     Q_OBJECT
 public:
@@ -19,7 +19,7 @@ public:
 
 public slots:
     void onMessage(QMqttMessage message);
-    void onMeasureTvoc(QString &topic, QJsonObject &jsonData);
+    void onMeasureTvoc(QString topic, QJsonObject jsonData);
 //    void onMeasureCo2(quint16 co2_val);
 
 

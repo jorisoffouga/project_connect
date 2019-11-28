@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 
     AirQuality *sensor = new AirQuality();
 
+    QObject::connect(sensor, &AirQuality::onDataTvoc, mqtt, &MqttCom::onMeasureTvoc);
 
     sensor->readTvoc();
 
