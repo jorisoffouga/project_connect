@@ -16,5 +16,10 @@ int main(int argc, char *argv[])
 
     MqttCom *mqtt = new MqttCom(address, port, topicList);
 
+    AirQuality *sensor = new AirQuality();
+
+
+    sensor->readTvoc();
+
     return a.exec();
 }
