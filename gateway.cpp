@@ -1,11 +1,19 @@
 #include "gateway.h"
 
 
-Gateway::Gateway(QString address, quint16 port, QList<QString> topicList): MqttHandler(address, port, topicList){}
+Gateway::Gateway(QString address, quint16 port, QList<QString> topicList):
+    MqttHandler(address,port, topicList)
+{
+}
 
+Gateway::~Gateway()
+{
+
+}
 
 void Gateway::onMessage(QMqttMessage message) {
-    qDebug() << "mqtt message receive fils from topic : " <<  message.topic().name() << " payload : " << message.payload();
+    qDebug() << "mqtt message receive from topic : " <<  message.topic().name();
+    qDebug() << "payload : " << message.payload();
 
     QStringList topic_parsed = message.topic().name().split('/');
     QString topic_origin = topic_parsed[1];
@@ -23,6 +31,6 @@ void Gateway::onMessage(QMqttMessage message) {
     }else{
         qDebug() << "ERROR : unknown topic" << message.topic().name() <<".";
     }
-    qDebug() << "Envoi du fichier json au topic" << new_topic <<".";
+    qDebug() << "Send data to server " << new_topic <<".";
     this->publishData(new_topic, payload);
 }

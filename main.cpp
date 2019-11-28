@@ -7,14 +7,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-//    QString address = "192.168.0.51";
-    QString address = "localhost";
-    quint16 port = 1883;
-    QList<QString> topicList;
-    topicList.append("/sensor/#");
-    topicList.append("/gateway/#");
-
-    Gateway *mqtt = new Gateway(address, port, topicList);
+    Gateway *mqtt = new Gateway(MQTT_ADDR, MQTT_PORT, {MQTT_SENSOR_TOPIC, MQTT_GATEWAY_TOPIC});
+    Q_UNUSED(mqtt)
 
     return a.exec();
 }
