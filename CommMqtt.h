@@ -6,8 +6,6 @@
 
 #ifndef COMMMQTT_H
 #define COMMMQTT_H
-#include <QList>
-#include <QObject>
 #include "mqtthandler.h"
 
 #define TOPICFLAME "/sensor/flame"

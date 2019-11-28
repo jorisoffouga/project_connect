@@ -2,10 +2,7 @@
 #define ReceiveData_H
 #include <QFile>
 #include <QTextStream>
-#include <QString>
-#include <QEvent>
 #include <QTimer>
-#include <QObject>
 #include "CommMqtt.h"
 
 

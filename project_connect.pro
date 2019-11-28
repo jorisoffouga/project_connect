@@ -33,4 +33,4 @@ HEADERS += \
     Sensor.h \
     mqtthandler.h
 
-QMAKE_LIBS += lgpiodcxx
+QMAKE_LIBS += -lgpiodcxx

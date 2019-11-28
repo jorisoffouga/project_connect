@@ -1,15 +1,6 @@
 #include "ReceiveData.h"
-#include <iostream>
-#include <QtMqtt>
-#include <fstream>
 #include <QDebug>
-#include <QCoreApplication>
-#include <QString>
-#include <QTimerEvent>
-#include <QTimer>
-#include <QObject>
-#include "CommMqtt.h"
-//#include <gpiod.hpp>
+#include <gpiod.hpp>
 
 #define FILEGPIOFLAME "/sys/class/gpio/gpio26/value"
 
@@ -26,9 +17,10 @@ ReceiveData::ReceiveData(QWidget *parent)
     QObject::connect(timer,SIGNAL(timeout()), this ,SLOT(timerEvent()));
     timer->start(100);
 }
+
 void ReceiveData::timerEvent()
 {
-    gpiod::chip  * chip = new gpiod::chip("0");
+    gpiod::chip  *chip = new gpiod::chip("0");
 
     gpiod::line line = chip->get_line(26);
 

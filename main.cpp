@@ -7,9 +7,6 @@
 */
 
 #include <QCoreApplication>
-#include "mqtthandler.h"
-#include "ReceiveData.h"
-#include "CommMqtt.h"
 #include "Sensor.h"
 
 /**
@@ -22,7 +19,7 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    Sensor *inter = new Sensor();
-
+    Sensor *sensor = new Sensor();
+    Q_UNUSED(sensor)
     return a.exec();
 }

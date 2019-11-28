@@ -1,7 +1,4 @@
 #include "CommMqtt.h"
-#include "mqtthandler.h"
-#include <QString>
-
 
 /**
  * @brief Construct a new CommMqtt::CommMqtt object
@@ -38,7 +35,7 @@ void CommMqtt::onMessage(QMqttMessage message)
 {
     QString msgRecu = message.topic().name();
 
-    qDebug() << "mqtt message receive fils from topic : " <<  message.topic().name() << " payload : " <<
+    qDebug() << "mqtt message receive from topic : " <<  message.topic().name() << " payload : " <<
                 message.payload();
 
     int resu_comp = QString::compare(msgRecu,TOPICGRAPH);
