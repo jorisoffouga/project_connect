@@ -1,3 +1,10 @@
+/*!
+ * \file ReceiveData.cpp
+ * \brief Manage data receive
+ * \author Thomas Abgrall
+ * \version 0.1
+ */
+
 #include "ReceiveData.h"
 #include <QDebug>
 #include <gpiod.hpp>
@@ -18,7 +25,9 @@ ReceiveData::ReceiveData(QWidget *parent)
     timer->start(100);
 }
 
-
+/**
+ * @brief ReceiveData::timerEvent
+ */
 void ReceiveData::timerEvent()
 {
     gpiod::chip  *chip = new gpiod::chip("0");
@@ -47,37 +56,4 @@ void ReceiveData::timerEvent()
         m_old_data = m_data_read;
     }
 }
-
-//void ReceiveData::timerEvent()
-//{
-//    QFile file(FILEGPIOFLAME);
-//    if(file.open(QIODevice::ReadOnly | QIODevice::Text))
-//    {
-//        QTextStream flux(&file);
-//        QString data_read = flux.readAll();
-//        file.close();
-//        data_read.replace("\n","");
-
-//        if(m_old_data != m_data_read)
-//        {
-//            QString topic = TOPICFLAME;
-//            QJsonObject jobject;
-//            if(data_read == "0")
-//            {
-//                jobject["data"] = 0;
-//            }
-//            else
-//            {
-//                jobject["data"] = 1;
-//            }
-//            emit DataToSend(topic, jobject);
-//            qDebug() << "Data send: " << jobject;
-
-//            m_old_data = m_data_read;
-//        }
-
-//    }else{
-//        qDebug()<<"Impossible d'ouvrir le Fichier";
-//    }
-//}
 

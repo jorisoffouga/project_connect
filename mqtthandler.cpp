@@ -1,3 +1,10 @@
+/*!
+ * \file CommMqtt.cpp
+ * \brief
+ * \author
+ * \version 0.1
+ */
+
 #include "mqtthandler.h"
 
 /**

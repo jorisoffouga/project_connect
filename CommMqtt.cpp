@@ -1,13 +1,24 @@
+/*!
+ * \file CommMqtt.cpp
+ * \brief Action of the Mqtt communication
+ * \author Thomas Abgrall
+ * \version 0.1
+ */
+
 #include "CommMqtt.h"
 
 
 /**
- * @brief Construct a new CommMqtt::CommMqtt object
- * 
- * @param address 
- * @param port 
- * @param topicList 
+ * @brief CommMqtt::CommMqtt
+ * Construct
+ * @param address
+ * 192.168.0.1
+ * @param port
+ * 1883
+ * @param topicList
+ * Constructor of the class
  */
+
 CommMqtt::CommMqtt(QString address, quint16 port, QList<QString> topicList):MqttHandler(address, port, topicList)
 {
     address = "192.168.0.1";
@@ -18,26 +29,26 @@ CommMqtt::CommMqtt(QString address, quint16 port, QList<QString> topicList):Mqtt
 }
 
 /**
- * @brief Call the method publish of MqttHandler to send data to the gateway
- * 
- * @param topic 
- * @param msg 
+ * @brief CommMqtt::SendData
+ * Call the method publish of MqttHandler to send data to the gateway
+ * @param topic
+ * name of the topic where we want to send message
+ * @param msg
+ * data to send, in QJsonObject
  */
 void CommMqtt::SendData(QString topic, QJsonObject msg)
 {
-    qDebug() << "topic:" << topic << "msg:" << msg;
     MqttHandler::publishData(topic,msg);
 }
 
 /**
- * @brief treatement of the message receive
- * 
- * @param message 
+ * @brief CommMqtt::onMessage
+ * treatement of the message receive
+ * @param message
+ * data receive from a pc
  */
 void CommMqtt::onMessage(QMqttMessage message)
 {
-    //QString msgRecu = message.topic().name();
-
     qDebug() << "mqtt message receive from topic : " <<  message.topic().name() << " payload : " <<
                 message.payload();
 
@@ -50,6 +61,7 @@ void CommMqtt::onMessage(QMqttMessage message)
     QJsonDocument dataJSON = QJsonDocument::fromJson(message.payload());
     QJsonObject payload = dataJSON.object();
     QJsonObject tempObject;
+
     int valGrap;
 
     if(topic_origin == "set"){
@@ -57,7 +69,7 @@ void CommMqtt::onMessage(QMqttMessage message)
             if(payload.contains("graph"))
             {
                 valGrap = payload.value("graph").toInt();
-                if(valGrap < 9)
+                if(0 < valGrap < 9)
                 {
                     for (int i=0;i<valGrap;i++)
                     {
@@ -78,14 +90,16 @@ void CommMqtt::onMessage(QMqttMessage message)
 
 /**
  * @brief CommMqtt::WriteGPIO
+ * Set a specific gpio in OUTPUT and set a value inside
  * @param pin
+ * num of the pin
  * @param value
+ * value to set in the gpio
  */
 void CommMqtt::WriteGPIO(int pin, bool value)
 {
     gpiod::line line = m_chip->get_line(pin);
 
-    line.request({"SensorFire", gpiod::line_request::DIRECTION_OUTPUT, 0});
-    line.set_value(value);
+    line.request({"SensorFire", gpiod::line_request::DIRECTION_OUTPUT, value});
     line.release();
 }

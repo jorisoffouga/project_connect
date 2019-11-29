@@ -1,3 +1,10 @@
+/*!
+ * \file Sensor.cpp
+ * \brief Make the connection beetween CommMqtt and ReceiveData
+ * \author Thomas Abgrall
+ * \version 0.1
+ */
+
 #include "Sensor.h"
 #include "CommMqtt.h"
 #include "ReceiveData.h"
@@ -17,6 +24,9 @@ Sensor::Sensor(QObject *parent) : QObject(parent)
     connect(m_read_file, &ReceiveData::DataToSend, m_comm, &CommMqtt::SendData);
 }
 
+/**
+ * @brief Sensor::~Sensor
+ */
 Sensor::~Sensor()
 {
     delete m_read_file;
