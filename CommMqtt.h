@@ -22,6 +22,7 @@ public slots:
 
 private:
     QString old_value;
+    void WriteGPIO(int, bool);
 };
 
 #endif // COMMMQTT_H

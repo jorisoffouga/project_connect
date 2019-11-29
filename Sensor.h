@@ -3,7 +3,7 @@
 #include "CommMqtt.h"
 #include "ReceiveData.h"
 
-#define TOPICSUBSCRIB "/command"
+#define TOPICSUBSCRIB "/set/#"
 
 
 class Sensor : public QObject
