@@ -7,9 +7,11 @@
 #ifndef COMMMQTT_H
 #define COMMMQTT_H
 #include "mqtthandler.h"
+#include <gpiod.hpp>
 
 #define TOPICFLAME "/sensor/flame"
 #define TOPICGRAPH "/sensor/graph"
+#define GPIO_CHIP_BARAGRAPH "2"
 
 class CommMqtt: public MqttHandler
 {
@@ -23,6 +25,7 @@ public slots:
 private:
     QString old_value;
     void WriteGPIO(int, bool);
+    gpiod::chip  *m_chip;
 };
 
 #endif // COMMMQTT_H

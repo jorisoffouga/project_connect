@@ -1,5 +1,5 @@
 #include "CommMqtt.h"
-#include <gpiod.hpp>
+
 
 /**
  * @brief Construct a new CommMqtt::CommMqtt object
@@ -14,6 +14,7 @@ CommMqtt::CommMqtt(QString address, quint16 port, QList<QString> topicList):Mqtt
     port = 1883;
     topicList.append(TOPICFLAME);
     topicList.append(TOPICGRAPH);
+    m_chip = new gpiod::chip(GPIO_CHIP_BARAGRAPH);
 }
 
 /**
@@ -82,11 +83,9 @@ void CommMqtt::onMessage(QMqttMessage message)
  */
 void CommMqtt::WriteGPIO(int pin, bool value)
 {
-    gpiod::chip  *chip = new gpiod::chip("2");
-    gpiod::line line = chip->get_line(pin);
+    gpiod::line line = m_chip->get_line(pin);
 
     line.request({"SensorFire", gpiod::line_request::DIRECTION_OUTPUT, 0});
     line.set_value(value);
     line.release();
 }
-
