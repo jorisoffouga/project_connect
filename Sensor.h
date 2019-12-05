@@ -8,33 +8,54 @@
  * \version 0.1
  */
 
-#include "CommMqtt.h"
-#include "ReceiveData.h"
+#include "SensorGpioData.h"
+#include "mqtthandler.h"
 
 #define TOPICSUBSCRIB "/set/#"
+#define TOPICFLAME "/sensor/flame"
+#define TOPICGRAPH "/sensor/graph"
+#define ADRESS "192.168.0.1"  /**local adress */
+#define PORT 1883             /**local port */
+#define GPIO_CHIP_BARAGRAPH "2"
 
 /**
  * @brief The Sensor class
  */
-class Sensor : public QObject
+class Sensor : public MqttHandler
 {
-    Q_OBJECT
 public:
-    Sensor(QObject *parent = 0);
+    Sensor(QString address, quint16 port, QList<QString> topicList);
     ~Sensor();
+
+public slots:
+    void onMessage(QMqttMessage message) override;
+    /**
+     * @brief SendData
+     */
+    void SendData(QString, QJsonObject);
+
 private:
+    /**
+     * @brief old_value
+     */
+    QString old_value;
+    /**
+     * @brief WriteGPIO
+     */
+    void WriteGPIO(int, bool);
+    /**
+     * @brief m_chip
+     */
+    gpiod::chip  *m_chip;
     /**
      * @brief m_read_file
      */
-    ReceiveData *m_read_file;
-    /**
-     * @brief m_comm
-     */
-    CommMqtt *m_comm;
+    SensorGpioData *m_sensorGpio;
     /**
      * @brief m_MqttHandler
      */
     MqttHandler *m_MqttHandler;
+
 };
 
 #endif // SENSOR_H

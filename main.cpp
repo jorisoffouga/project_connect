@@ -19,7 +19,9 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    Sensor *sensor = new Sensor();
-    Q_UNUSED(sensor)
+
+    Sensor *sensor = new Sensor(ADRESS, PORT, {TOPICSUBSCRIB});
+    Q_UNUSED(sensor);
+
     return a.exec();
 }
