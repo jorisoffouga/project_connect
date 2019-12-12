@@ -1,6 +1,6 @@
 # Project_connect
 
-Based on MQTT and QT Framework this projet contains all application for gateway and sensor 
+Based on MQTT and QT Framework this projet contains all applications for gateway and sensor 
 
 I. Gateway
   Message router between the graphics application and the sensors
