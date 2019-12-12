@@ -1,8 +1,9 @@
 TEMPLATE = subdirs
-SUBDIRS = mqtthandler gateway airquality
+SUBDIRS = mqtthandler gateway airquality flameGraph
 
 gateway.depends = mqtthandler
 airquality.depends = mqtthandler
+flameGraph.depends = mqtthandler
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
