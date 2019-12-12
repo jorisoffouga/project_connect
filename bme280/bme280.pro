@@ -6,5 +6,3 @@ TARGET = bme280
 SOURCES += MqttSensor.cpp main.cpp Sensor.cpp SensorValue.cpp
 HEADERS += MqttSensor.h Sensor.h SensorValue.h
 
-INCLUDEPATH += ../mqtthandler
-LIBS += -L../mqtthandler -lmqtthandler
