@@ -1,4 +1,4 @@
-# project_connect
+# Project_connect
 
 Based on MQTT and QT Framework this projet contains all application for gateway and sensor 
 
