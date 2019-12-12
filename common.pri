@@ -20,5 +20,10 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+#install systemd services
+service.path = /lib/systemd/system/
+service.files = ../services/*
+INSTALLS += service
+
 INCLUDEPATH += ../mqtthandler
 LIBS += -L../mqtthandler -lmqtthandler

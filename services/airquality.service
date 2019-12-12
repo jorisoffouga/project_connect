@@ -1,0 +1,12 @@
+[Unit]
+Description=airquality MQTT service
+
+[Service]
+Type=simple
+ExecStart=/opt/airquality/bin/airquality
+Restart=on-failure
+# Configures the time to wait before service is stopped forcefully.
+TimeoutStopSec=300
+
+[Install]
+WantedBy=multi-user.target
