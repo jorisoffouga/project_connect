@@ -31,6 +31,7 @@ void MqttSensor::dataPublish(QString Topic, QJsonObject data)
 {
     MqttHandler::publishData(Topic,data);
 }
+
 /**
  * @brief MqttSensor::onMessage
  * @param message

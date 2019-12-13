@@ -12,11 +12,8 @@
 SensorValue::SensorValue()
 {
     QTimer *timer = new QTimer();
-    /**
-     * @brief QObject::connect
-     * connect timer with the function who will be called
-     */
-    QObject::connect(timer, &QTimer::timeout, this , &SensorValue::dataSensor);
+
+    connect(timer, &QTimer::timeout, this , &SensorValue::dataSensor);
     timer->start(TMP_TIMER);
 }
 
@@ -33,12 +30,6 @@ void SensorValue::dataSensor()
     QString data_pression;
     QString data_humidity;
     QJsonObject jobject;
-
-    /*! add topics who will be use for the data sending */
-    topic.append(TOPIC_TEMPERATURE);
-    topic.append(TOPIC_HUMIDITY);
-    topic.append(TOPIC_PRESSIURE);
-    topic.append(TOPIC_ENVIRONMENT);
 
     m_temperature = stringToValue(PATH_TEMPERATURE);
     m_temperature = (m_temperature/1000)-5;
@@ -67,7 +58,7 @@ void SensorValue::dataSensor()
  */
 void SensorValue::send(QJsonObject dataSensor)
 {
-    emit dataChanged(topic.at(3), dataSensor);
+    emit dataChanged(TOPIC_ENVIRONMENT, dataSensor);
 }
 
 /**

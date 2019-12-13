@@ -15,9 +15,6 @@
 #define TOPIC_PRESSIURE     "/sensor/pressure"
 #define TOPIC_ENVIRONMENT      "/sensor/environment"
 
-#define PORT 1883
-#define ADRESS_IP "192.168.0.1"
-
 
 /**
  * @brief The Sensor class

@@ -1,10 +1,10 @@
 TEMPLATE = subdirs
-SUBDIRS = mqtthandler gateway airquality flameGraph bme280
+SUBDIRS = mqtthandler gateway airquality flameGraph environmental
 
 gateway.depends = mqtthandler
 airquality.depends = mqtthandler
 flameGraph.depends = mqtthandler
-bme280.depends = mqtthandler
+environmental.depends = mqtthandler
 
 # custom target 'doc' in *.pro file
 dox.target = doc

@@ -7,18 +7,6 @@
  * \brief A Document file.
 */
 
-#define PATH_TEMPERATURE    "/sys/bus/iio/devices/iio\:device0/in_temp_input"
-#define PATH_PRESSIURE      "/sys/bus/iio/devices/iio\:device0/in_pressure_input"
-#define PATH_HUMIDITY       "/sys/bus/iio/devices/iio\:device0/in_humidityrelative_input"
-#define PATH_TEST           "/home/eric/Master1/workspace/Cpp_project_archi_logicielle/fichier_sim_bme_280.txt"
-
-#define TOPIC_TEMPERATURE   "/sensor/temperature"
-#define TOPIC_HUMIDITY      "/sensor/humidity"
-#define TOPIC_PRESSIURE     "/sensor/pressure"
-#define TOPIC_ENVIRONMENT      "/sensor/environment"
-
-#define TMP_TIMER   3000
-
 #include <QFile>
 #include <QTextStream>
 #include <QString>
@@ -29,6 +17,16 @@
 #include <QJsonObject>
 #include <QtMath>
 
+#define PATH_TEMPERATURE    "/sys/bus/iio/devices/iio\:device0/in_temp_input"
+#define PATH_PRESSIURE      "/sys/bus/iio/devices/iio\:device0/in_pressure_input"
+#define PATH_HUMIDITY       "/sys/bus/iio/devices/iio\:device0/in_humidityrelative_input"
+
+#define TOPIC_TEMPERATURE   "/sensor/temperature"
+#define TOPIC_HUMIDITY      "/sensor/humidity"
+#define TOPIC_PRESSIURE     "/sensor/pressure"
+#define TOPIC_ENVIRONMENT   "/sensor/environment"
+
+#define TMP_TIMER   3000
 
 /**
  * @brief The SensorValue class
@@ -52,9 +50,8 @@ public slots:
 
 signals:
     void dataChanged(QString, QJsonObject);
-private:
-    QList <QString> topic;
 
+private:
     double m_temperature = 0;
     double m_pressure = 0;
     double m_humidity = 0;

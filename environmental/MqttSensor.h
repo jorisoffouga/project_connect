@@ -1,7 +1,6 @@
+#ifndef MqttSensor_H
+#define MqttSensor_H
 
-#ifndef COMM_MQTT_H
-#define COMM_MQTT_H
-#include <QList>
 #include "mqtthandler.h"
 
 /*! \file MqttSensor.h
@@ -27,4 +26,4 @@ private:
     QList<QString> *m_topiclist;
 };
 
-#endif // COMM_MQTT_H
+#endif // MqttSensor_H

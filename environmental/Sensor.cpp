@@ -16,11 +16,8 @@
  */
 Sensor::Sensor()
 {
-    topicList.append(TOPIC_TEMPERATURE);
-    topicList.append(TOPIC_HUMIDITY);
-    topicList.append(TOPIC_PRESSIURE);
-    topicList.append(TOPIC_ENVIRONMENT);
-    MqttSensor* m_client = new MqttSensor(ADRESS_IP, PORT, topicList);
+    MqttSensor* m_client = new MqttSensor(MQTT_ADDR, MQTT_PORT, {TOPIC_TEMPERATURE,
+                                          TOPIC_HUMIDITY, TOPIC_PRESSIURE, TOPIC_ENVIRONMENT});
     SensorValue* m_timer = new SensorValue();
     connect(m_timer, &SensorValue::dataChanged, m_client, &MqttSensor::dataPublish);
 
