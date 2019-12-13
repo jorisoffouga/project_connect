@@ -1,19 +1,17 @@
 #ifndef AIRQUALITY_H
 #define AIRQUALITY_H
 
-
-#define tvocPath_dev0 "/sys/bus/iio/devices/iio\:device0/in_concentration_voc_raw"
-#define tvocPath_dev1 "/sys/bus/iio/devices/iio\:device1/in_concentration_voc_raw"
-
-#define co2Path_dev0 "/sys/bus/iio/devices/iio\:device0/in_concentration_co2_raw"
-#define co2Path_dev1 "/sys/bus/iio/devices/iio\:device1/in_concentration_co2_raw"
-
 #include <QObject>
 #include <QFile>
 #include <QDebug>
 #include <QTimer>
 #include <QJsonObject>
 
+#define TVOCPATHDEV0 "/sys/bus/iio/devices/iio\:device0/in_concentration_voc_raw"
+#define TVOCPATHDEV1 "/sys/bus/iio/devices/iio\:device1/in_concentration_voc_raw"
+
+#define CO2PATHDEV0 "/sys/bus/iio/devices/iio\:device0/in_concentration_co2_raw"
+#define CO2PATHDEV1 "/sys/bus/iio/devices/iio\:device1/in_concentration_co2_raw"
 
 class AirQuality : public QObject
 {

@@ -10,7 +10,7 @@
  * @param address
  * address ip of gateway
  * @param port
- * 1883
+ * mqtt port
  * @param topicList
  * all topics using by the mqtt protocol
  */
