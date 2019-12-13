@@ -5,4 +5,5 @@ TEMPLATE = lib
 TARGET = mqtthandler
 CONFIG += staticlib
 SOURCES = mqtthandler.cpp
-HEADERS = mqtthandler.h
+HEADERS = mqtthandler.h \
+    mqttconfig.h

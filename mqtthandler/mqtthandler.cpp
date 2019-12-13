@@ -9,7 +9,7 @@
 
 /**
  * @brief Construct a new Mqtt Handler:: Mqtt Handler object
- * 
+ *
  * @param address
  * @param port
  * @param topicList
@@ -35,7 +35,7 @@ MqttHandler::~MqttHandler()
 }
 
 /**
- * @brief 
+ * @brief
  *
  * @param state
  */
@@ -51,15 +51,17 @@ void MqttHandler::clientStateChanged(QMqttClient::ClientState state)
         break;
     case QMqttClient::Connected:
         qDebug() << "Client Connected";
-        foreach(QString topic, m_topic_list){
-            subscribe(topic);
+        if (!m_topic_list.isEmpty()){
+            foreach(QString topic, m_topic_list){
+                subscribe(topic);
+            }
         }
         break;
     }
 }
 
 /**
- * @brief 
+ * @brief
  *
  * @param topic
  */
@@ -80,7 +82,7 @@ void MqttHandler::subscribe(QString topic)
 }
 
 /**
- * @brief 
+ * @brief
  *
  * @param message
  */
@@ -91,10 +93,10 @@ void MqttHandler::onMessage(QMqttMessage message)
 }
 
 /**
- * @brief 
- * 
- * @param topic 
- * @param jsonData 
+ * @brief
+ *
+ * @param topic
+ * @param jsonData
  */
 void MqttHandler::publishData(QString &topic, QJsonObject &jsonData)
 {
