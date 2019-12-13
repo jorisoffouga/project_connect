@@ -29,31 +29,13 @@ public:
 
 public slots:
     void onMessage(QMqttMessage message) override;
-    /**
-     * @brief SendData
-     */
     void SendData(QString, QJsonObject);
 
 private:
-    /**
-     * @brief old_value
-     */
     QString old_value;
-    /**
-     * @brief WriteGPIO
-     */
     void WriteGPIO(int, bool);
-    /**
-     * @brief m_chip
-     */
     gpiod::chip  *m_chip;
-    /**
-     * @brief m_read_file
-     */
     SensorGpioData *m_sensorGpio;
-    /**
-     * @brief m_MqttHandler
-     */
     MqttHandler *m_MqttHandler;
 
 };
