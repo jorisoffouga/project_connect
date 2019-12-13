@@ -3,14 +3,12 @@
 
 AirQuality::AirQuality()
 {
-    // Initialisation des json et variables du publish MQTT
-    m_payload["data_tvoc"] = "";
-    m_payload["data_co2"] = "";
-    m_payload["id"] = "42";
-    m_topic = "/sensor/air_quality";
-
     m_timer = new QTimer();
+    m_mqtt = new MqttCom(MQTT_ADDR, MQTT_PORT, {});
+
     connect(m_timer, &QTimer::timeout, this, &AirQuality::readSensor);
+    connect(this, &AirQuality::onDataSensor, m_mqtt, &MqttCom::onMeasureSensor);
+
     m_timer->start(5000);
 }
 
@@ -111,17 +109,19 @@ QString AirQuality::readTvoc()
 
 void AirQuality::readSensor()
 {
+    QString co2;
+    QString tvoc;
     QJsonObject jobject;
 
-    m_co2 = readCo2();
+    co2 = readCo2();
     QThread::msleep(300);
-    m_tvoc = readTvoc();
+    tvoc = readTvoc();
 
     // Ajout des données relevées au payload JSON
-    if(m_co2 != "Error" && m_tvoc != "Error"){
-        jobject["data_co2"] = m_co2;
-        jobject["data_tvoc"] = m_tvoc;
-        emit onDataSensor(m_topic, jobject);
+    if(co2 != "Error" && tvoc != "Error"){
+        jobject["data_co2"] = co2;
+        jobject["data_tvoc"] = tvoc;
+        emit onDataSensor(AIRQUALITYTOPIC, jobject);
     }
 }
 

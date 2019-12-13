@@ -1,17 +1,17 @@
 #ifndef AIRQUALITY_H
 #define AIRQUALITY_H
 
-#include <QObject>
 #include <QFile>
-#include <QDebug>
 #include <QTimer>
-#include <QJsonObject>
+#include "mqttcom.h"
 
 #define TVOCPATHDEV0 "/sys/bus/iio/devices/iio\:device0/in_concentration_voc_raw"
 #define TVOCPATHDEV1 "/sys/bus/iio/devices/iio\:device1/in_concentration_voc_raw"
 
 #define CO2PATHDEV0 "/sys/bus/iio/devices/iio\:device0/in_concentration_co2_raw"
 #define CO2PATHDEV1 "/sys/bus/iio/devices/iio\:device1/in_concentration_co2_raw"
+
+#define AIRQUALITYTOPIC "/sensor/air_quality"
 
 class AirQuality : public QObject
 {
@@ -23,12 +23,8 @@ public:
     QString readTvoc();
 
 private:
-    quint16 m_co2_val;
     QTimer *m_timer;
-    QJsonObject m_payload;
-    QString m_topic;
-    QString m_co2;
-    QString m_tvoc;
+    MqttCom *m_mqtt;
 
 public slots :
     void readSensor();
