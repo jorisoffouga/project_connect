@@ -6,7 +6,6 @@
  */
 
 #include "Sensor.h"
-#include <QDebug>
 
 /**
  * @brief Sensor::Sensor

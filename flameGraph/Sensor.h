@@ -12,10 +12,8 @@
 #include "mqtthandler.h"
 
 #define TOPICSUBSCRIB "/set/#"
-#define TOPICFLAME "/sensor/flame"
 #define TOPICGRAPH "/sensor/graph"
-#define ADRESS "192.168.0.1"  /**local adress */
-#define PORT 1883             /**local port */
+
 #define GPIO_CHIP_BARAGRAPH "2"
 
 class Sensor : public MqttHandler

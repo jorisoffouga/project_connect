@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    Sensor *sensor = new Sensor(ADRESS, PORT, {TOPICSUBSCRIB});
+    Sensor *sensor = new Sensor(MQTT_ADDR, MQTT_PORT, {TOPICSUBSCRIB});
     Q_UNUSED(sensor);
 
     return a.exec();
