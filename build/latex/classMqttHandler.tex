@@ -1,0 +1,106 @@
+\hypertarget{classMqttHandler}{}\section{Mqtt\+Handler Class Reference}
+\label{classMqttHandler}\index{Mqtt\+Handler@{Mqtt\+Handler}}
+
+
+The \hyperlink{classMqttHandler}{Mqtt\+Handler} class.  
+
+
+
+
+{\ttfamily \#include $<$mqtthandler.\+h$>$}
+
+Inheritance diagram for Mqtt\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMqttHandler}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classMqttHandler_acfaf00fbb740ea1c01c747c614a04c28}{on\+Message} (Q\+Mqtt\+Message message)
+\begin{DoxyCompactList}\small\item\em on\+Message \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMqttHandler_a82b5c651c2777c831f186e6a9819bd50}{Mqtt\+Handler} (Q\+String \&address, quint16 port, Q\+List$<$ Q\+String $>$ topic\+List)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMqttHandler}{Mqtt\+Handler}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMqttHandler_ad7c8c03663ca1139d9ad1954df76375e}\label{classMqttHandler_ad7c8c03663ca1139d9ad1954df76375e}} 
+\hyperlink{classMqttHandler_ad7c8c03663ca1139d9ad1954df76375e}{$\sim$\+Mqtt\+Handler} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Mqtt Handler\+:\+: Mqtt Handler object. \end{DoxyCompactList}\item 
+void \hyperlink{classMqttHandler_ac8d16d953468567ff9676e2bb71b9238}{publish\+Data} (Q\+String \&topic, Q\+Json\+Object \&json\+Data)
+\begin{DoxyCompactList}\small\item\em publish\+Data \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMqttHandler_a8d06cf85d6988c9c9129e170dda38a10}\label{classMqttHandler_a8d06cf85d6988c9c9129e170dda38a10}} 
+Q\+Mqtt\+Client $\ast$ \hyperlink{classMqttHandler_a8d06cf85d6988c9c9129e170dda38a10}{m\+\_\+client}
+\begin{DoxyCompactList}\small\item\em m\+\_\+client \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classMqttHandler}{Mqtt\+Handler} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMqttHandler_a82b5c651c2777c831f186e6a9819bd50}\label{classMqttHandler_a82b5c651c2777c831f186e6a9819bd50}} 
+\index{Mqtt\+Handler@{Mqtt\+Handler}!Mqtt\+Handler@{Mqtt\+Handler}}
+\index{Mqtt\+Handler@{Mqtt\+Handler}!Mqtt\+Handler@{Mqtt\+Handler}}
+\subsubsection{\texorpdfstring{Mqtt\+Handler()}{MqttHandler()}}
+{\footnotesize\ttfamily Mqtt\+Handler\+::\+Mqtt\+Handler (\begin{DoxyParamCaption}\item[{Q\+String \&}]{address,  }\item[{quint16}]{port,  }\item[{Q\+List$<$ Q\+String $>$}]{topic\+List }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classMqttHandler}{Mqtt\+Handler}. 
+
+Construct a new Mqtt Handler\+:\+: Mqtt Handler object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & \\
+\hline
+{\em port} & \\
+\hline
+{\em topic\+List} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMqttHandler_acfaf00fbb740ea1c01c747c614a04c28}\label{classMqttHandler_acfaf00fbb740ea1c01c747c614a04c28}} 
+\index{Mqtt\+Handler@{Mqtt\+Handler}!on\+Message@{on\+Message}}
+\index{on\+Message@{on\+Message}!Mqtt\+Handler@{Mqtt\+Handler}}
+\subsubsection{\texorpdfstring{on\+Message}{onMessage}}
+{\footnotesize\ttfamily void Mqtt\+Handler\+::on\+Message (\begin{DoxyParamCaption}\item[{Q\+Mqtt\+Message}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [slot]}}
+
+
+
+on\+Message 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMqttHandler_ac8d16d953468567ff9676e2bb71b9238}\label{classMqttHandler_ac8d16d953468567ff9676e2bb71b9238}} 
+\index{Mqtt\+Handler@{Mqtt\+Handler}!publish\+Data@{publish\+Data}}
+\index{publish\+Data@{publish\+Data}!Mqtt\+Handler@{Mqtt\+Handler}}
+\subsubsection{\texorpdfstring{publish\+Data()}{publishData()}}
+{\footnotesize\ttfamily void Mqtt\+Handler\+::publish\+Data (\begin{DoxyParamCaption}\item[{Q\+String \&}]{topic,  }\item[{Q\+Json\+Object \&}]{json\+Data }\end{DoxyParamCaption})}
+
+
+
+publish\+Data 
+
+
+\begin{DoxyParams}{Parameters}
+{\em topic} & \\
+\hline
+{\em json\+Data} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/thomas/\+Documents/\+M2/\+Archi\+\_\+logiciel/project\+\_\+connect/mqtthandler/mqtthandler.\+h\item 
+/home/thomas/\+Documents/\+M2/\+Archi\+\_\+logiciel/project\+\_\+connect/mqtthandler/mqtthandler.\+cpp\end{DoxyCompactItemize}

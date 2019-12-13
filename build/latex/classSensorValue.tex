@@ -1,0 +1,141 @@
+\hypertarget{classSensorValue}{}\section{Sensor\+Value Class Reference}
+\label{classSensorValue}\index{Sensor\+Value@{Sensor\+Value}}
+
+
+The \hyperlink{classSensorValue}{Sensor\+Value} class.  
+
+
+
+
+{\ttfamily \#include $<$Sensor\+Value.\+h$>$}
+
+Inheritance diagram for Sensor\+Value\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSensorValue}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classSensorValue_af24ff9ad2ade8fe703c4d67ae91fe3b5}{data\+Sensor} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSensorValue_af24ff9ad2ade8fe703c4d67ae91fe3b5}{Sensor\+Value\+::data\+Sensor} read and convert data. \end{DoxyCompactList}\item 
+void \hyperlink{classSensorValue_afa482d6ee6d1da567aad5c31f0118403}{send} (Q\+Json\+Object)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSensorValue_afa482d6ee6d1da567aad5c31f0118403}{Sensor\+Value\+::send} send data with mqtt protocol the jobject of data sensor function will be send with this emit. \end{DoxyCompactList}\item 
+double \hyperlink{classSensorValue_acf9b28e185a3f5c8c43bc409eb6d6723}{string\+To\+Value} (Q\+String)
+\begin{DoxyCompactList}\small\item\em Sensor\+Value\+::stringtovalue function of conversion and reading in file the file contains the value of differents sensor. \end{DoxyCompactList}\item 
+double \hyperlink{classSensorValue_a15d579b0938d2a8933f88563b108d150}{cast\+Value} (double, int)
+\begin{DoxyCompactList}\small\item\em Sensor\+Value\+::cast\+\_\+value function allow choice the number after the comma. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSensorValue_a3bc68cb111e1111f6f00495eac3c4cb4}\label{classSensorValue_a3bc68cb111e1111f6f00495eac3c4cb4}} 
+void {\bfseries data\+Changed} (Q\+String, Q\+Json\+Object)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classSensorValue_aed70ed5c17088bb9b420d9d63b9379bd}{Sensor\+Value} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classSensorValue_aed70ed5c17088bb9b420d9d63b9379bd}{Sensor\+Value\+::\+Sensor\+Value} function in interruption and called the function reading after a time define. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classSensorValue_ac36ee5f0f2cd87e70ea805fd60642b9f}\label{classSensorValue_ac36ee5f0f2cd87e70ea805fd60642b9f}} 
+Q\+File {\bfseries file}
+\item 
+\mbox{\Hypertarget{classSensorValue_a3a5569f5301c02e5519ef46c2ed42dfa}\label{classSensorValue_a3a5569f5301c02e5519ef46c2ed42dfa}} 
+Q\+Text\+Stream {\bfseries flux}
+\item 
+\mbox{\Hypertarget{classSensorValue_a5d7d0853dfc7e6a107addcd5b0f367a9}\label{classSensorValue_a5d7d0853dfc7e6a107addcd5b0f367a9}} 
+Q\+Timer $\ast$ {\bfseries timer}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classSensorValue}{Sensor\+Value} class. 
+
+set up the reading and emit the data to mqtt protocol 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSensorValue_aed70ed5c17088bb9b420d9d63b9379bd}\label{classSensorValue_aed70ed5c17088bb9b420d9d63b9379bd}} 
+\index{Sensor\+Value@{Sensor\+Value}!Sensor\+Value@{Sensor\+Value}}
+\index{Sensor\+Value@{Sensor\+Value}!Sensor\+Value@{Sensor\+Value}}
+\subsubsection{\texorpdfstring{Sensor\+Value()}{SensorValue()}}
+{\footnotesize\ttfamily Sensor\+Value\+::\+Sensor\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classSensorValue_aed70ed5c17088bb9b420d9d63b9379bd}{Sensor\+Value\+::\+Sensor\+Value} function in interruption and called the function reading after a time define. 
+
+Q\+Object\+::connect connect timer with the function who will be called
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classSensorValue_a15d579b0938d2a8933f88563b108d150}\label{classSensorValue_a15d579b0938d2a8933f88563b108d150}} 
+\index{Sensor\+Value@{Sensor\+Value}!cast\+Value@{cast\+Value}}
+\index{cast\+Value@{cast\+Value}!Sensor\+Value@{Sensor\+Value}}
+\subsubsection{\texorpdfstring{cast\+Value}{castValue}}
+{\footnotesize\ttfamily double Sensor\+Value\+::cast\+Value (\begin{DoxyParamCaption}\item[{double}]{valeur,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Sensor\+Value\+::cast\+\_\+value function allow choice the number after the comma. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em valeur} & contains the value who will be convert \\
+\hline
+{\em n} & number de digits after the comma \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the value with a cast 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSensorValue_af24ff9ad2ade8fe703c4d67ae91fe3b5}\label{classSensorValue_af24ff9ad2ade8fe703c4d67ae91fe3b5}} 
+\index{Sensor\+Value@{Sensor\+Value}!data\+Sensor@{data\+Sensor}}
+\index{data\+Sensor@{data\+Sensor}!Sensor\+Value@{Sensor\+Value}}
+\subsubsection{\texorpdfstring{data\+Sensor}{dataSensor}}
+{\footnotesize\ttfamily void Sensor\+Value\+::data\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\hyperlink{classSensorValue_af24ff9ad2ade8fe703c4d67ae91fe3b5}{Sensor\+Value\+::data\+Sensor} read and convert data. 
+
+add topics who will be use for the data sending \mbox{\Hypertarget{classSensorValue_afa482d6ee6d1da567aad5c31f0118403}\label{classSensorValue_afa482d6ee6d1da567aad5c31f0118403}} 
+\index{Sensor\+Value@{Sensor\+Value}!send@{send}}
+\index{send@{send}!Sensor\+Value@{Sensor\+Value}}
+\subsubsection{\texorpdfstring{send}{send}}
+{\footnotesize\ttfamily void Sensor\+Value\+::send (\begin{DoxyParamCaption}\item[{Q\+Json\+Object}]{data\+Sensor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\hyperlink{classSensorValue_afa482d6ee6d1da567aad5c31f0118403}{Sensor\+Value\+::send} send data with mqtt protocol the jobject of data sensor function will be send with this emit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+sensor} & contains the data which must be send \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSensorValue_acf9b28e185a3f5c8c43bc409eb6d6723}\label{classSensorValue_acf9b28e185a3f5c8c43bc409eb6d6723}} 
+\index{Sensor\+Value@{Sensor\+Value}!string\+To\+Value@{string\+To\+Value}}
+\index{string\+To\+Value@{string\+To\+Value}!Sensor\+Value@{Sensor\+Value}}
+\subsubsection{\texorpdfstring{string\+To\+Value}{stringToValue}}
+{\footnotesize\ttfamily double Sensor\+Value\+::string\+To\+Value (\begin{DoxyParamCaption}\item[{Q\+String}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Sensor\+Value\+::stringtovalue function of conversion and reading in file the file contains the value of differents sensor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & contains the path which will be open \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value contains in the file but in double type 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/thomas/\+Documents/\+M2/\+Archi\+\_\+logiciel/project\+\_\+connect/bme280/\hyperlink{SensorValue_8h}{Sensor\+Value.\+h}\item 
+/home/thomas/\+Documents/\+M2/\+Archi\+\_\+logiciel/project\+\_\+connect/bme280/\hyperlink{SensorValue_8cpp}{Sensor\+Value.\+cpp}\end{DoxyCompactItemize}

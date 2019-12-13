@@ -1,0 +1,98 @@
+\hypertarget{classMqttSensor}{}\section{Mqtt\+Sensor Class Reference}
+\label{classMqttSensor}\index{Mqtt\+Sensor@{Mqtt\+Sensor}}
+
+
+The \hyperlink{classMqttSensor}{Mqtt\+Sensor} class.  
+
+
+
+
+{\ttfamily \#include $<$Mqtt\+Sensor.\+h$>$}
+
+Inheritance diagram for Mqtt\+Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classMqttSensor}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMqttSensor_a5ced2fd35046b8306902358860cb3dce}{on\+Message} (Q\+Mqtt\+Message message) override
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMqttSensor_a5ced2fd35046b8306902358860cb3dce}{Mqtt\+Sensor\+::on\+Message}. \end{DoxyCompactList}\item 
+void \hyperlink{classMqttSensor_a0e7aa8d83910d9481683b34bf3075321}{data\+Publish} (Q\+String Topic, Q\+Json\+Object data)
+\begin{DoxyCompactList}\small\item\em Mqtt\+Sensor\+::data\+\_\+publish. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMqttSensor_a2b6e93a22be073904ade69ce1af4e03f}{Mqtt\+Sensor} (Q\+String address, quint16 port, Q\+List$<$ Q\+String $>$ topic\+List)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classMqttSensor_a2b6e93a22be073904ade69ce1af4e03f}{Mqtt\+Sensor\+::\+Mqtt\+Sensor}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classMqttSensor}{Mqtt\+Sensor} class. 
+
+class allow connection of class 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMqttSensor_a2b6e93a22be073904ade69ce1af4e03f}\label{classMqttSensor_a2b6e93a22be073904ade69ce1af4e03f}} 
+\index{Mqtt\+Sensor@{Mqtt\+Sensor}!Mqtt\+Sensor@{Mqtt\+Sensor}}
+\index{Mqtt\+Sensor@{Mqtt\+Sensor}!Mqtt\+Sensor@{Mqtt\+Sensor}}
+\subsubsection{\texorpdfstring{Mqtt\+Sensor()}{MqttSensor()}}
+{\footnotesize\ttfamily Mqtt\+Sensor\+::\+Mqtt\+Sensor (\begin{DoxyParamCaption}\item[{Q\+String}]{address,  }\item[{quint16}]{port,  }\item[{Q\+List$<$ Q\+String $>$}]{topic\+List }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classMqttSensor_a2b6e93a22be073904ade69ce1af4e03f}{Mqtt\+Sensor\+::\+Mqtt\+Sensor}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & address ip of gateway \\
+\hline
+{\em port} & 1883 \\
+\hline
+{\em topic\+List} & all topics using by the mqtt protocol \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMqttSensor_a0e7aa8d83910d9481683b34bf3075321}\label{classMqttSensor_a0e7aa8d83910d9481683b34bf3075321}} 
+\index{Mqtt\+Sensor@{Mqtt\+Sensor}!data\+Publish@{data\+Publish}}
+\index{data\+Publish@{data\+Publish}!Mqtt\+Sensor@{Mqtt\+Sensor}}
+\subsubsection{\texorpdfstring{data\+Publish}{dataPublish}}
+{\footnotesize\ttfamily void Mqtt\+Sensor\+::data\+Publish (\begin{DoxyParamCaption}\item[{Q\+String}]{Topic,  }\item[{Q\+Json\+Object}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Mqtt\+Sensor\+::data\+\_\+publish. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Topic} & \\
+\hline
+{\em data} & function transmit data via mqtt protocol \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMqttSensor_a5ced2fd35046b8306902358860cb3dce}\label{classMqttSensor_a5ced2fd35046b8306902358860cb3dce}} 
+\index{Mqtt\+Sensor@{Mqtt\+Sensor}!on\+Message@{on\+Message}}
+\index{on\+Message@{on\+Message}!Mqtt\+Sensor@{Mqtt\+Sensor}}
+\subsubsection{\texorpdfstring{on\+Message}{onMessage}}
+{\footnotesize\ttfamily void Mqtt\+Sensor\+::on\+Message (\begin{DoxyParamCaption}\item[{Q\+Mqtt\+Message}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [slot]}}
+
+
+
+\hyperlink{classMqttSensor_a5ced2fd35046b8306902358860cb3dce}{Mqtt\+Sensor\+::on\+Message}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & Function receiving data via mqtt protocol \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/thomas/\+Documents/\+M2/\+Archi\+\_\+logiciel/project\+\_\+connect/bme280/\hyperlink{MqttSensor_8h}{Mqtt\+Sensor.\+h}\item 
+/home/thomas/\+Documents/\+M2/\+Archi\+\_\+logiciel/project\+\_\+connect/bme280/\hyperlink{MqttSensor_8cpp}{Mqtt\+Sensor.\+cpp}\end{DoxyCompactItemize}
