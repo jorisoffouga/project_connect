@@ -9,9 +9,7 @@
 
 
 /**
- * @brief Construct a new My Timer:: My Timer object
- * 
- * @param parent 
+ * @brief SensorGpioData::SensorGpioData
  */
 SensorGpioData::SensorGpioData()
 {
@@ -21,6 +19,9 @@ SensorGpioData::SensorGpioData()
     m_timer->start(100);
 }
 
+/**
+ * @brief SensorGpioData::~SensorGpioData
+ */
 SensorGpioData::~SensorGpioData()
 {
     delete m_chip;
@@ -32,8 +33,8 @@ SensorGpioData::~SensorGpioData()
 }
 
 /**
- * @brief ReceiveData::timerEvent
- * this function are call when the timer is over, it take the bool flame pin value and send it.
+ * @brief SensorGpioData::GpioEvent
+ * This function are call when the timer is over, it take the bool flame pin value and send it.
  */
 void SensorGpioData::GpioEvent()
 {
