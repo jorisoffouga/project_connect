@@ -1,5 +1,5 @@
 [Unit]
-Description=airquality MQTT service
+Description=Air Quality MQTT service
 
 [Service]
 Type=simple

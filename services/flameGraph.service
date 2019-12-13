@@ -1,5 +1,5 @@
 [Unit]
-Description=flameGraph MQTT service
+Description=FlameGraph MQTT service
 
 [Service]
 Type=simple
