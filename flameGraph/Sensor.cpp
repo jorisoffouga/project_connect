@@ -9,9 +9,11 @@
 #include <QDebug>
 
 /**
- * @brief Construct a new Inter Obj:: Inter Obj object
- * this function make the connection beetween Receivedata and CommMqtt.
- * @param parent 
+ * @brief Sensor::Sensor
+ * This function make the connection beetween Receivedata and CommMqtt.
+ * @param address
+ * @param port
+ * @param topicList
  */
 Sensor::Sensor(QString address, quint16 port, QList<QString> topicList) : MqttHandler(address, port, topicList)
 {
