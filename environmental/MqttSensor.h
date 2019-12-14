@@ -1,7 +1,7 @@
 #ifndef MqttSensor_H
 #define MqttSensor_H
 
-#include "mqtthandler.h"
+#include "MqttHandler.h"
 
 /*! \file MqttSensor.h
  * @author Eric Rebillon (eric.rebillon@ynov.com)

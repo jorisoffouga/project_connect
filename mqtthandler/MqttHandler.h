@@ -16,7 +16,7 @@
 #include <QJsonObject>
 #include <QList>
 #include <QDebug>
-#include "mqttconfig.h"
+#include "Mqttconfig.h"
 
 /**
  * @brief The MqttHandler class
