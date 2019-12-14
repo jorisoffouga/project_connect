@@ -9,7 +9,7 @@
  */
 
 #include "SensorGpioData.h"
-#include "mqtthandler.h"
+#include "MqttHandler.h"
 
 #define TOPICSUBSCRIB "/set/#"
 #define TOPICGRAPH "/sensor/graph"
@@ -24,11 +24,11 @@ public:
 
 public slots:
     void onMessage(QMqttMessage message) override;
-    void SendData(QString, QJsonObject);
+    void sendData(QString, QJsonObject);
 
 private:
     QString old_value;
-    void WriteGPIO(int, bool);
+    void writeGPIO(int, bool);
     gpiod::chip  *m_chip;
     SensorGpioData *m_sensorGpio;
     MqttHandler *m_MqttHandler;

@@ -19,7 +19,7 @@ Sensor::Sensor(QString address, quint16 port, QList<QString> topicList) : MqttHa
     m_chip = new gpiod::chip(GPIO_CHIP_BARAGRAPH); /** object gpio chip */
     m_sensorGpio = new SensorGpioData();
 
-    connect(m_sensorGpio, &SensorGpioData::DataGpioReady, this, &Sensor::SendData);
+    connect(m_sensorGpio, &SensorGpioData::dataGpioReady, this, &Sensor::sendData);
 }
 
 /**
@@ -39,7 +39,7 @@ Sensor::~Sensor()
  * @param msg
  * data to send, in QJsonObject
  */
-void Sensor::SendData(QString topic, QJsonObject msg)
+void Sensor::sendData(QString topic, QJsonObject msg)
 {
     qDebug() <<"topic: " << topic << "msg :"<< msg;
     publishData(topic, msg);
@@ -77,10 +77,10 @@ void Sensor::onMessage(QMqttMessage message)
                 {
                     for (int i=0;i<valGrap;i++)
                     {
-                        WriteGPIO(i,0);
+                        writeGPIO(i,0);
                     }
                     for (int i=valGrap;i<10;i++) {
-                        WriteGPIO(i,1);
+                        writeGPIO(i,1);
                     }
                 }
                 else {
@@ -100,7 +100,7 @@ void Sensor::onMessage(QMqttMessage message)
  * @param value
  * value to set in the gpio
  */
-void Sensor::WriteGPIO(int pin, bool value)
+void Sensor::writeGPIO(int pin, bool value)
 {
     gpiod::line line = m_chip->get_line(pin);
 

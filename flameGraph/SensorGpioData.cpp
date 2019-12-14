@@ -14,7 +14,7 @@
 SensorGpioData::SensorGpioData()
 {
     QTimer *m_timer = new QTimer();
-    QObject::connect(m_timer, &QTimer::timeout, this, &SensorGpioData::GpioEvent);
+    QObject::connect(m_timer, &QTimer::timeout, this, &SensorGpioData::gpioEvent);
     m_chip = new gpiod::chip(GPIO_CHIP_FLAME); /** object gpio chip */
     m_timer->start(100);
 }
@@ -36,7 +36,7 @@ SensorGpioData::~SensorGpioData()
  * @brief SensorGpioData::GpioEvent
  * This function are call when the timer is over, it take the bool flame pin value and send it.
  */
-void SensorGpioData::GpioEvent()
+void SensorGpioData::gpioEvent()
 {
     static int oldData = 0;
     gpiod::line line = m_chip->get_line(26);
@@ -56,7 +56,7 @@ void SensorGpioData::GpioEvent()
         {
             jobject["data"] = 1;
         }
-        emit DataGpioReady(topic, jobject);
+        emit dataGpioReady(topic, jobject);
         oldData = m_data_read;
     }
 }

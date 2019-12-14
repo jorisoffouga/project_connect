@@ -28,7 +28,7 @@ public:
 
 public slots:
 
-    void GpioEvent();
+    void gpioEvent();
 
 private:
     /**
@@ -46,7 +46,7 @@ private:
      */
     gpiod::chip  *m_chip;
 signals:
-    void DataGpioReady(QString, QJsonObject);
+    void dataGpioReady(QString, QJsonObject);
 };
 
 #endif // SensorGpioData_H
