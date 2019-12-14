@@ -1,14 +1,16 @@
-#include "mqttcom.h"
+#include "AirQualityMqtt.h"
 
 // Constructeur : l'héritage de la class Mqtthandler permet de créer l'objet sans nécessiter d'ajout.
-MqttCom::MqttCom(QString address, quint16 port, QList<QString> topicList):
+AirQualityMqtt::AirQualityMqtt(QString address, quint16 port, QList<QString> topicList):
     MqttHandler(address, port, topicList)
 {}
+
+AirQualityMqtt::~AirQualityMqtt(){}
 
 
 /* Fonction de formattage du contenu envoyé vers la fonction d'emission.
  * Appellée par le signal onDataSensor */
-void MqttCom::onMeasureSensor(QString topic, QJsonObject jsonData)
+void AirQualityMqtt::onMeasureSensor(QString topic, QJsonObject jsonData)
 {
     qDebug() << jsonData;
     QMqttTopicFilter topicFilter;

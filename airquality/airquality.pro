@@ -3,5 +3,9 @@
 }
 TEMPLATE = app
 TARGET = airquality
-SOURCES += airquality.cpp main.cpp mqttcom.cpp
-HEADERS += airquality.h mqttcom.h
+SOURCES += main.cpp \
+    AirQuality.cpp \
+    AirQualityMqtt.cpp
+HEADERS += \
+    AirQuality.h \
+    AirQualityMqtt.h

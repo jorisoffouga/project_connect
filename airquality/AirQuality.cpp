@@ -1,13 +1,13 @@
-#include "airquality.h"
+#include "AirQuality.h"
 #include "QThread"
 
 AirQuality::AirQuality()
 {
     m_timer = new QTimer();
-    m_mqtt = new MqttCom(MQTT_ADDR, MQTT_PORT, {});
+    m_mqtt = new AirQualityMqtt(MQTT_ADDR, MQTT_PORT, {});
 
     connect(m_timer, &QTimer::timeout, this, &AirQuality::readSensor);
-    connect(this, &AirQuality::onDataSensor, m_mqtt, &MqttCom::onMeasureSensor);
+    connect(this, &AirQuality::onDataSensor, m_mqtt, &AirQualityMqtt::onMeasureSensor);
 
     m_timer->start(5000);
 }

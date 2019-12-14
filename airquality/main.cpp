@@ -1,6 +1,6 @@
 #include <QCoreApplication>
-#include "mqttcom.h"
-#include "airquality.h"
+#include "AirQualityMqtt.h"
+#include "AirQuality.h"
 
 int main(int argc, char *argv[])
 {

@@ -3,7 +3,7 @@
 
 #include <QFile>
 #include <QTimer>
-#include "mqttcom.h"
+#include "AirQualityMqtt.h"
 
 #define TVOCPATHDEV0 "/sys/bus/iio/devices/iio\:device0/in_concentration_voc_raw"
 #define TVOCPATHDEV1 "/sys/bus/iio/devices/iio\:device1/in_concentration_voc_raw"
@@ -24,7 +24,7 @@ public:
 
 private:
     QTimer *m_timer;
-    MqttCom *m_mqtt;
+    AirQualityMqtt *m_mqtt;
 
 public slots :
     void readSensor();
