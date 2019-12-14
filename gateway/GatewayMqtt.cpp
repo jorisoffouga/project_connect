@@ -1,17 +1,17 @@
-#include "gateway.h"
+#include "GatewayMqtt.h"
 
 
-Gateway::Gateway(QString address, quint16 port, QList<QString> topicList):
+GatewayMqtt::GatewayMqtt(QString address, quint16 port, QList<QString> topicList):
     MqttHandler(address,port, topicList)
 {
 }
 
-Gateway::~Gateway()
+GatewayMqtt::~GatewayMqtt()
 {
 
 }
 
-void Gateway::onMessage(QMqttMessage message) {
+void GatewayMqtt::onMessage(QMqttMessage message) {
     qDebug() << "mqtt message receive from topic : " <<  message.topic().name();
     qDebug() << "payload : " << message.payload();
 
